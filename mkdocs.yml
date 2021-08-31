@@ -1,0 +1,8 @@
+site_name: 'yellow-docs'
+
+nav:
+  - Home: index.md
+
+plugins:
+  - techdocs-core
+  - monorepo
