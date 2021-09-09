@@ -26,7 +26,7 @@ jobs:
       - run: cat catalog-info.yaml
     
       - id: check_changes
-        run: echo "::set-output name=changes::$(git status --procelain"
+        run: echo "::set-output name=changes::$(git status --procelain)"
       
       - if: steps.check_changes != ''
         run: |
