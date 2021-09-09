@@ -22,8 +22,27 @@ jobs:
       - name: generate catalog-info.yaml
         uses: kim5566/catalog-generate-action@main
         with:
-          config_file: ${{ github.workspace }}/test.json
-
+          config_file: |-
+            {
+             "name": "Orange Team",
+              "team": "Tets",
+              "lifecycle": "production",
+              "description": "test",
+              "providesApis": [
+                {
+                  "name": "api1",
+                  "definition": "https://github.com/aystzh/go-modules/blob/master/protobuf/simple_service.proto",
+                  "type": "grpc",
+                  "lifecycle": "production"
+                },
+               {
+                  "name": "api2",
+                  "definition": "https://github.com/aystzh/go-modules/blob/master/protobuf/simple_service.proto",
+                  "type": "grpc",
+                  "lifecycle": "experimental"
+                }
+               ]
+              }
       - run: cat catalog-info.yaml
     
       - name: Check for changes
