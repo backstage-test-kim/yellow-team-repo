@@ -7,7 +7,7 @@ metadata:
     backstage.io/techdocs-ref: dir:.
 spec:
   type: service
-  owner: Orange
+  owner: Yellow
   lifecycle: production
   providesApis:
      - api1
@@ -20,7 +20,7 @@ metadata:
 spec:
   type: grpc
   lifecycle: production
-  owner: Orange
+  owner: Yellow
   definition:
     $text: https://github.com/aystzh/go-modules/blob/master/protobuf/simple_service.proto
 ---
@@ -31,6 +31,6 @@ metadata:
 spec:
   type: grpc
   lifecycle: experimental
-  owner: Orange
+  owner: Yellow
   definition:
     $text: https://github.com/aystzh/go-modules/blob/master/protobuf/simple_service.proto
