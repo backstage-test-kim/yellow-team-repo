@@ -1,6 +1,6 @@
 {
   "name": "Orange Team",
-  "team": "Yellow",
+  "team": "Orange",
   "lifecycle": "production",
   "description": "test",
   "providesApis": [
