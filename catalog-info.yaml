@@ -9,7 +9,7 @@ metadata:
     - java
 spec:
   type: service
-  owner: yellow
+  owner: Orange
   lifecycle: production
   providesApis:
      - api1
@@ -22,7 +22,7 @@ metadata:
 spec:
   type: grpc
   lifecycle: production
-  owner: yellow
+  owner: Orange
   definition:
     $text: https://github.com/aystzh/go-modules/blob/master/protobuf/simple_service.proto
 ---
@@ -33,6 +33,6 @@ metadata:
 spec:
   type: grpc
   lifecycle: experimental
-  owner: yellow
+  owner: Orange
   definition:
     $text: https://github.com/aystzh/go-modules/blob/master/protobuf/simple_service.proto
