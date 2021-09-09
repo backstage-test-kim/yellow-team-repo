@@ -18,8 +18,8 @@ jobs:
       
       - name: generate catalog-info.yaml
         uses: kim5566/catalog-generate-action@main
-        with:
-          config_file: toJson(test.json)
+        env:
+          GITHUB_CONTEXT: ${{fromJson(test.json)}}
 
       - run: cat catalog-info.yaml
     
