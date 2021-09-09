@@ -21,7 +21,7 @@ jobs:
       - name: generate catalog-info.yaml
         uses: kim5566/catalog-generate-action@main
         with:
-          config_file: {{test.json }}
+          config_file: {{ test.json }}
 
       - run: cat catalog-info.yaml
     
