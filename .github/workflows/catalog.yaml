@@ -23,6 +23,7 @@ jobs:
         uses: kim5566/catalog-generate-action@main
         with:
           config_file: |-
+            ```
             {
              "name": "Orange Team",
               "team": "Tets",
@@ -43,6 +44,7 @@ jobs:
                 }
                ]
               }
+              ```
       - run: cat catalog-info.yaml
     
       - name: Check for changes
