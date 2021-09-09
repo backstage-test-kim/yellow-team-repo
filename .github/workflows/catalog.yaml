@@ -1,0 +1,25 @@
+name: Create Catalog-info.yaml
+
+on:
+  push:
+    branches: [main]
+    # You can even set it to run only when TechDocs related files are updated.
+    # paths:
+    #   - "docs/**"
+    #   - "mkdocs.yml"
+
+jobs:
+  create-backstage-config-file:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: generate catalog-info.yaml
+        uses: kim5566/catalog-generate-action@main
+        with:
+          config_file: test.json
+
+    
+        
