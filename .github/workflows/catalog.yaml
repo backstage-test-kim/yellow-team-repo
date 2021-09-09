@@ -35,9 +35,7 @@ jobs:
         if: steps.check_changes.outputs.changes != ''
         uses: peter-evans/create-pull-request@v3
         with:
-          commit-message: ${{ github.event.client_payload.body }}
-          committer: GitHub <noreply@github.com>
-          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-          title: Update catalog-info.yaml from ${{ steps.current-ref.outputs.current-ref }} to ${{ github.event.client_payload.tag_name }}
-          body: |
-            ${{ github.event.client_payload.body }}
+          commit-message: update authors
+          title: Update AUTHORS
+          body: Credit new contributors by updating AUTHORS
+          branch: update-authors
