@@ -15,7 +15,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      
+     
+      - run cat test.json  
+
       - name: generate catalog-info.yaml
         uses: kim5566/catalog-generate-action@main
         with:
