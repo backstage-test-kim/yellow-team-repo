@@ -26,13 +26,12 @@ jobs:
 
       - run: cat catalog-info.yaml
     
-      - id: check_changes
-        run: echo "::set-output name=changes::$(git status --procelain)"
-      
-      - if: steps.check_changes.output.changes != ''
+      - name: Create commits
         run: |
-            git config --global user.email "kim0471@hotmail.com" &&
-            git config --global user.name "kim" &&
-            git add catalog-info.yaml &&
-            git commit -m"test" &&
-            git push --set-upstream origin ${{ github.event.pull_request.head.ref }}
+          git config user.name 'kim'
+          git config user.email 'kim@users.noreply.github.com'
+          git add -A
+          git commit -m "test"
+      
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
