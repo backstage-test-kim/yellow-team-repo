@@ -1,12 +1,10 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: Yellow Team
+  name: Orange Team
   description: test
   annotations:
     backstage.io/techdocs-ref: dir:.
-  tag:
-    - java
 spec:
   type: service
   owner: Orange
