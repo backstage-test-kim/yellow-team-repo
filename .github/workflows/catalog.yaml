@@ -25,4 +25,15 @@ jobs:
 
       - run: cat catalog-info.yaml
     
-        
+      - id: check_changes
+        run: echo "::set-output name=changes::$(git status --procelain"
+      
+      - if: steps.check_changes != ''
+        run: |
+          {
+            git config --global user.email "kim0471@hotmail.com" &&
+            git config --global user.name "kim"&&
+            git add catalog-info.yaml&&
+            git commit -m"test"&&
+            git push --setupstream origin ${{ github.event.pull_request.head.ref }}
+          } 
