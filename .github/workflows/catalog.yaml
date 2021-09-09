@@ -16,12 +16,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
      
-      - run: cat test.json  
+      - run: cat test.json 
 
       - name: generate catalog-info.yaml
         uses: kim5566/catalog-generate-action@main
         with:
-          config_file: {{ test.json }}
+          config_file: ${{ github.workspace }}/test.json
 
       - run: cat catalog-info.yaml
     
