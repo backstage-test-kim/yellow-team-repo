@@ -15,7 +15,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-     
+        with: 
+          ref: ${{ github.event.pull_request.head.ref }}
       - run: cat test.json 
 
       - name: generate catalog-info.yaml
@@ -30,10 +31,8 @@ jobs:
       
       - if: steps.check_changes != ''
         run: |
-          {
             git config --global user.email "kim0471@hotmail.com" &&
-            git config --global user.name "kim"&&
-            git add catalog-info.yaml&&
-            git commit -m"test"&&
+            git config --global user.name "kim" &&
+            git add catalog-info.yaml &&
+            git commit -m"test" &&
             git push --set-upstream origin ${{ github.event.pull_request.head.ref }}
-          } 
