@@ -35,7 +35,7 @@ jobs:
         if: steps.check_changes.outputs.changes != ''
         uses: peter-evans/create-pull-request@v3
         with:
-          commit-message: update authors
-          title: Update AUTHORS
-          body: Credit new contributors by updating AUTHORS
-          branch: update-authors
+          title: Auto-update Backstage catalog-info.yaml configuration
+          commit-message: 'auto-update Backstage catalog-info.yaml configuration'
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
