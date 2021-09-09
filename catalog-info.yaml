@@ -5,6 +5,8 @@ metadata:
   description: test
   annotations:
     backstage.io/techdocs-ref: dir:.
+  tag:
+    - java
 spec:
   type: service
   owner: yellow
