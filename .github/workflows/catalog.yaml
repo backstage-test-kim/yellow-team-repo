@@ -22,7 +22,7 @@ jobs:
       - name: generate catalog-info.yaml
         uses: kim5566/catalog-generate-action@main
         with:
-          config_file: |-
+          config_file: |
             """
             {
              "name": "Orange Team",
