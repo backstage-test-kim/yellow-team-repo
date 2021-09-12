@@ -1,36 +1,10 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: Orange Team
-  description: test
+  name: Orange
   annotations:
     backstage.io/techdocs-ref: dir:.
 spec:
   type: service
-  owner: Yellow
+  owner: orange
   lifecycle: production
-  providesApis:
-     - api1
-     - api2
----
-apiVersion: backstage.io/v1alpha1
-kind: API
-metadata:
-  name: api1
-spec:
-  type: grpc
-  lifecycle: production
-  owner: Yellow
-  definition:
-    $text: https://github.com/aystzh/go-modules/blob/master/protobuf/simple_service.proto
----
-apiVersion: backstage.io/v1alpha1
-kind: API
-metadata:
-  name: api2
-spec:
-  type: grpc
-  lifecycle: experimental
-  owner: Yellow
-  definition:
-    $text: https://github.com/aystzh/go-modules/blob/master/protobuf/simple_service.proto
