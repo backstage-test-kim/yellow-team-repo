@@ -8,6 +8,8 @@ metadata:
   name: Orange
   owner: team-a
   type: service
+  tags:
+  - yaml
 spec:
   consumesApis:
   - red-team-api
