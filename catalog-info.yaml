@@ -1,44 +1,44 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: blue-team-repo
-  description: An example of a Backstage application.
-  annotations:
-    backstage.io/techdocs-ref: dir:./docs
-  type: service
-  owner: team-a
-  lifecycle: experimental
-spec:
-  type: service
-  owner: team-a
-  lifecycle: experimental
-  providesApis:
-    - blue-team-api
-  consumesApis:
-    - red-team-api
----
-apiVersion: backstage.io/v1alpha1
-kind: API
-metadata:
-  name: blue-team-api
-  annotations:
-    backstage.io/techdocs-ref: url:https://github.com/backstage-test-kim/red-team-repo
-spec:
-  type: grpc
-  lifecycle: production
-  owner: team-a
-  definition:
-    $text: https://github.com/backstage-test-kim/test-action-mkdocs/blob/master/test.proto
----
-apiVersion: backstage.io/v1alpha1
-kind: API
-metadata:
-  name: red-team-api
   annotations:
     backstage.io/techdocs-ref: dir:.
-spec:
-  type: grpc
-  lifecycle: production
+  description: An example of a Backstage application.
+  lifecycle: experimental
+  name: Orange
   owner: team-a
+  type: service
+spec:
+  consumesApis:
+  - red-team-api
+  lifecycle: production
+  owner: orange
+  providesApis:
+  - blue-team-api
+  type: website
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/techdocs-ref: url:https://github.com/backstage-test-kim/red-team-repo
+  name: blue-team-api
+spec:
   definition:
     $text: https://github.com/backstage-test-kim/test-action-mkdocs/blob/master/test.proto
+  lifecycle: production
+  owner: team-a
+  type: grpc
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+  name: red-team-api
+spec:
+  definition:
+    $text: https://github.com/backstage-test-kim/test-action-mkdocs/blob/master/test.proto
+  lifecycle: production
+  owner: team-a
+  type: grpc
