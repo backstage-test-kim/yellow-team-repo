@@ -4,10 +4,21 @@ metadata:
   annotations:
     backstage.io/techdocs-ref: dir:.
   name: Orange
-  tags: 
+  tags:
   - java
 spec:
   lifecycle: production
   owner: orange
-  type: website
   system: backstage
+  type: website
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: API1
+spec:
+  definition:
+    $text: https://github.com/backstage-test-kim/test-action-mkdocs/blob/master/test.proto
+  lifecycle: experimental
+  owner: orange
+  type: grpc
