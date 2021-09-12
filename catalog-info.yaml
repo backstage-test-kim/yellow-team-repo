@@ -1,10 +1,10 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: hjdsbfghj
   annotations:
     backstage.io/techdocs-ref: dir:.
+  name: Orange
 spec:
-  type: website
-  owner: fds
   lifecycle: production
+  owner: orange
+  type: website
