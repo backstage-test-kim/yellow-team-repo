@@ -11,4 +11,16 @@ spec:
   owner: orange
   system: backstage
   type: website
-
+  providesApis:
+  - API1
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: API1
+spec:
+  type: grpc
+  lifecycle: experimental
+  owner: orange
+  definition:
+    $text: https://github.com/backstage-test-kim/test-action-mkdocs/blob/master/test.proto
