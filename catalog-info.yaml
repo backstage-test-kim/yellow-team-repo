@@ -12,15 +12,14 @@ spec:
   system: backstage
   type: website
   providesApis:
-  - API1
+  - API2
   consumeApis:
   - API1
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: API1
-  description: my first api
+  name: API2
 spec:
   type: grpc
   lifecycle: experimental
