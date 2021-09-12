@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: Orange
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: website
+  owner: orange
+  lifecycle: production
