@@ -7,9 +7,9 @@ metadata:
   lifecycle: experimental
   name: Orange
   owner: team-a
-  type: service
   tags:
   - yaml
+  type: service
 spec:
   consumesApis:
   - red-team-api
