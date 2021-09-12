@@ -1,10 +1,44 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
+  name: blue-team-repo
+  description: An example of a Backstage application.
+  annotations:
+    backstage.io/techdocs-ref: dir:./docs
+  type: service
+  owner: team-a
+  lifecycle: experimental
+spec:
+  type: service
+  owner: team-a
+  lifecycle: experimental
+  providesApis:
+    - blue-team-api
+  consumesApis:
+    - red-team-api
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: blue-team-api
+  annotations:
+    backstage.io/techdocs-ref: url:https://github.com/backstage-test-kim/red-team-repo
+spec:
+  type: grpc
+  lifecycle: production
+  owner: team-a
+  definition:
+    $text: https://github.com/backstage-test-kim/test-action-mkdocs/blob/master/test.proto
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: red-team-api
   annotations:
     backstage.io/techdocs-ref: dir:.
-  name: Orange
 spec:
+  type: grpc
   lifecycle: production
-  owner: orange
-  type: website
+  owner: team-a
+  definition:
+    $text: https://github.com/backstage-test-kim/test-action-mkdocs/blob/master/test.proto
