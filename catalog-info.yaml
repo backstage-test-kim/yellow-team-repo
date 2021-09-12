@@ -4,7 +4,10 @@ metadata:
   annotations:
     backstage.io/techdocs-ref: dir:.
   name: Orange
+  tags: 
+  - java
 spec:
   lifecycle: production
   owner: orange
   type: website
+  system: backstage
