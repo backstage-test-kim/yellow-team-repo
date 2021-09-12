@@ -1,13 +1,35 @@
 apiVersion: backstage.io/v1alpha1
-kind: Component
+kind: API
 metadata:
   annotations:
     backstage.io/techdocs-ref: dir:.
-  name: Orange
-  tags: 
+  name: API1
+  tags:
   - java
 spec:
-  lifecycle: production
+  lifecycle: experimental
   owner: orange
-  type: website
+  type: grpc
   system: backstage
+  providesApis:
+  - API1
+  definition:
+    $text: https://github.com/backstage-test-kim/test-action-mkdocs/blob/master/test.proto
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+  name: API1
+  tags:
+  - java
+spec:
+  lifecycle: experimental
+  owner: orange
+  type: grpc
+  system: backstage
+  providesApis:
+  - API1
+  definition:
+    $text: https://github.com/backstage-test-kim/test-action-mkdocs/blob/master/test.proto
