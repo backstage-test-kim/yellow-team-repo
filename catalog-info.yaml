@@ -13,6 +13,8 @@ spec:
   type: website
   providesApis:
   - API1
+  consumeApis:
+  - API1
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
