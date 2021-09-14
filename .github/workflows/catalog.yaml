@@ -36,6 +36,12 @@ jobs:
         id: check_changes
         run: |
           echo "::set-output name=changes::$(git status --porcelain)"
+          
+          
+      - if: steps.check_changes.outputs.changes != ''
+        run: |
+           git add catalog-info.yaml
+           git commit -m"test"
       
       - name: Create Pull Request
         if: steps.check_changes.outputs.changes != ''
