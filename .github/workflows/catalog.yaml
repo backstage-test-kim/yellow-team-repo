@@ -21,10 +21,7 @@ jobs:
         with:
           repository: backstage-test-kim/red-team-repo
           path: red-team-repo
-          
-      - run: 
-           mkdir -p $GITHUB_WORKSPACE/docs/red/docs/ &&
-           cp ./red-team-repo/docs/index.md $GITHUB_WORKSPACE/docs/red/.
+    
            
       - name: generate catalog-info.yaml
         uses: kim5566/catalog-generate-action@main
@@ -42,8 +39,7 @@ jobs:
         run: |
            git config --global user.name ${{ github.actor }}
            git config --global user.email 'kimj5566@users.noreply.github.com'
-           git rm --cached red-team-repo
-           git commit -m"test"
+           rm -rf .git/modules/red-team-repo
            git add catalog-info.yaml
            git commit -m"test"
       
