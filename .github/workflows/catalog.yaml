@@ -40,7 +40,7 @@ jobs:
         run: |
            git config --global user.name ${{ github.actor }}
            git config --global user.email 'kimj5566@users.noreply.github.com'
-           rm -rf .git/modules/red-team-repo
+           rm -rf red-team-repo
            git add catalog-info.yaml
            git commit -m"test"
       
