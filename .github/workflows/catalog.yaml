@@ -21,6 +21,7 @@ jobs:
         with:
           repository: backstage-test-kim/red-team-repo
           path: red-team-repo
+          submodules: 'false'
     
            
       - name: generate catalog-info.yaml
