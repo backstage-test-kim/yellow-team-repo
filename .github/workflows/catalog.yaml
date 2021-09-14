@@ -40,8 +40,8 @@ jobs:
           
       - if: steps.check_changes.outputs.changes != ''
         run: |
-           git config user.name ${{ github.actor }}
-           git config user.name 'dashk@hah.dasd'
+           git config --global user.name ${{ github.actor }}
+           git config --global user.name 'dashk@hah.dasd'
            git add catalog-info.yaml
            git commit -m"test"
       
