@@ -40,6 +40,8 @@ jobs:
           
       - if: steps.check_changes.outputs.changes != ''
         run: |
+           git config user.name 'someone'
+           git config user.name 'dashk@hah.dasd'
            git add catalog-info.yaml
            git commit -m"test"
       
