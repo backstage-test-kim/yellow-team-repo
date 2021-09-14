@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: backstage-test-kim/red-team-repo
-          path: yellow-team-repo
+          path: red-team-repo
           
       - run: 
            mkdir -p $GITHUB_WORKSPACE/docs/red/docs/ &&
