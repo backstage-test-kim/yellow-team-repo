@@ -34,6 +34,7 @@ jobs:
       - name: Check diff
         shell: bash
         run: |
+          rm -rf red-team-repo
           if [ -z "$(git diff --exit-code)" -a -z "$(git ls-files -o --exclude-standard)" ]
           then
             echo "nothing to commit. skip pr"
