@@ -36,7 +36,8 @@ jobs:
           echo "::set-output name=changes::$(git status --porcelain)"
           
           
-      - if: steps.check_changes.outputs.changes != ''
+      - name: Commit 
+        if: steps.check_changes.outputs.changes != ''
         run: |
            git config --global user.name ${{ github.actor }}
            git config --global user.email 'kimj5566@users.noreply.github.com'
