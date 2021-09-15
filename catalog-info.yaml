@@ -4,6 +4,7 @@ metadata:
   name: Orange
   annotations:
     backstage.io/techdocs-ref: dir:.
+    github.com/project-slug: backstage-test-kim/yellow-team-repo
 spec:
   type: website
   owner: orange
