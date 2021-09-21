@@ -27,6 +27,11 @@ jobs:
            
       - name: generate catalog-info.yaml
         uses: kim5566/catalog-generate-action@main
+        with:
+          config_file: '{"Name":"Orange","Team":"orange","Lifecycle":"production","Type":"website","ProvidesApis":[{"Name":"API2", "Type":"grpc","Lifecycle":"experimental","Definition":"https://github.com/backstage-test-kim/test-action-mkdocs/blob/master/test.proto"}]}'
+
+      - run: cat catalog-info.yaml
+
 
       - run: cat catalog-info.yaml
     
