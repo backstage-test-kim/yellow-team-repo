@@ -4,7 +4,7 @@ This is a basic example of documentation.
 
 Coming from yellow team new test
 
-display imgs
+display images
 
 ![](img/1.jpg)
 ![](img/2.jpg)
