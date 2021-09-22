@@ -3,6 +3,8 @@ name: Create Catalog-info.yaml
 on:
   push:
     branches: [main]
+    paths:
+      - 'catalog-info.yaml'
     # You can even set it to run only when TechDocs related files are updated.
 
 
