@@ -6,8 +6,6 @@ on:
     paths:
       - 'catalog-info.yaml'
       - '.github/workflows/backstage-catalog.yaml'
-    # You can even set it to run only when TechDocs related files are updated.
-
 
 jobs:
   create-backstage-config-file:
