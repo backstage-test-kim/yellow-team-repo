@@ -1,7 +1,7 @@
 name: Create Catalog-info.yaml
 
 on:
-  pull_request:
+  push:
     branches: [main]
     paths:
       - 'catalog-info.yaml'
