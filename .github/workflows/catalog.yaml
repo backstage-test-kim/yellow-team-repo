@@ -1,11 +1,11 @@
 name: Create Catalog-info.yaml
 
 on:
-  push:
+  pull-request:
     branches: [main]
     paths:
       - 'catalog-info.yaml'
-      - '.github/workflows/backstage-catalog.yaml'
+      - '.github/workflows/catalog.yaml'
     # You can even set it to run only when TechDocs related files are updated.
 
 
