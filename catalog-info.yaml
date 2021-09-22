@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: Orange
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: website
+  owner: orange
+  lifecycle: production
+  providesApis:
+     - API2
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: API2
+spec:
+  type: grpc
+  lifecycle: experimental
+  owner: orange
+  definition:
+    $text: https://github.com/backstage-test-kim/test-action-mkdocs/blob/master/test.proto
