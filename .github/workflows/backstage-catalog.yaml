@@ -34,7 +34,7 @@ jobs:
       - run: cat catalog-info.yaml
 
 
-      - run: cat catalog-info.yaml
+      - run: cat ${{ GITHUB_REPOSITORY }}
     
       - name: Check diff
         shell: bash
