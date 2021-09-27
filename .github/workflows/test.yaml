@@ -17,8 +17,8 @@ jobs:
       - id: get_tag
         run: |
          TAG=$(curl \
-         -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' -H "Accept: application/vnd.github.v3+json" \
-         ${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY})
+         -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' -H "Accept: application/vnd.github.mercy-preview+json" \
+         ${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/topics | jq -r '.names | join(",")')
          echo $TAG
 
          
