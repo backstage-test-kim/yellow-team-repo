@@ -15,6 +15,6 @@ jobs:
           repo: request-action
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: "echo tags: ${{ steps.get_latest_release.outputs.data }}"
-      - run: "echo description: ${{ steps.get_latest_release.outputs.data.descriptions }}"
+      - run: "echo tags: ${{ steps.get_latest_release.outputs.data.topics }}"
+      - run: "echo description: ${{ steps.get_latest_release.outputs.data.description }}"
 
