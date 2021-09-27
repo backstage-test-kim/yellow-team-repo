@@ -12,7 +12,7 @@ jobs:
         with:
           route: GET /repos/{owner}/{repo}
           owner: octokit
-          repo: request-action
+          repo: $GITHUB_REPOSITORY
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: "echo tags: ${{ steps.get_latest_release.outputs.data.topics }}"
