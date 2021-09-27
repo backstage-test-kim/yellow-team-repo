@@ -10,9 +10,9 @@ jobs:
       - uses: octokit/request-action@v2.x
         id: get_latest_release
         with:
-          route: GET /repos/:owner/:repository
+          route: GET /repos/{owner}/{repo}
           owner: backstage-test-kim
-          repository: ${{ github.repository }}
+          repo: ${{ github.repository }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: "echo tags: ${{ steps.get_latest_release.outputs.data.topics }}"
