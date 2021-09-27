@@ -14,6 +14,6 @@ jobs:
           repo: ${{ github.repository }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: "echo tags: fromJson(steps.get_latest_release.outputs.data).topics"
-      - run: "echo description: fromJson(steps.get_latest_release.outputs.data).description"
+      - run: "echo tags: ${{ fromJson(steps.get_latest_release.outputs.data).topics }}"
+      - run: "echo description: ${{ fromJson(steps.get_latest_release.outputs.data).description }}"
 
