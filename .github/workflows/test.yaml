@@ -10,8 +10,8 @@ jobs:
       - uses: octokit/request-action@v2.x
         id: get_latest_release
         with:
-          route: GET /repos/{owner}/{repo}
-          owner: octokit
+          route: GET /repos/:owner/:repository
+          owner: backstage-test-kim
           repository: ${{ github.repository }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
