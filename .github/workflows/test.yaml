@@ -16,9 +16,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - id: get_tag
         run: |
-         tag=$(curl \
+         TAG=$(curl \
          -H "Accept: application/vnd.github.mercy-preview+json" \
          ${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/topics)
+         echo "::set-output name=tag::$TAG"
+
          
       - run: "echo description: ${{ fromJson(steps.get_latest_release.outputs.data).description }}"
       - run: "echo description: ${{ steps.get_tag.outputs.tag }}"
