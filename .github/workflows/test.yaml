@@ -20,8 +20,8 @@ jobs:
          -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' -H "Accept: application/vnd.github.v3+json" \
          ${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY})
          echo $data
-         topics=($data| jq -r '.topics | join(",")')
          des=($data | jq '.description')
+         topics=($data | jq -r '.topics | join(",")')
          echo "::set-output name=tag::$topics"
          echo "::set-output name=description::$des"
 
