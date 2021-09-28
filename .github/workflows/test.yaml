@@ -7,20 +7,24 @@ jobs:
   logLatestRelease:
     runs-on: ubuntu-latest
     steps:
-      - uses: octokit/request-action@v2.x
-        id: get_latest_release
-        with:
-          route: GET /repos/{repo}
-          repo: ${{ github.repository }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       - uses: octokit/request-action@v2.x
+#         id: get_latest_release
+#         with:
+#           route: GET /repos/{repo}
+#           repo: ${{ github.repository }}
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - id: get_tag
         run: |
-         TAG=$(curl \
+         data=$(curl \
          -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' -H "Accept: application/vnd.github.mercy-preview+json" \
-         ${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/topics | jq -r '.names | join(",")')
-         echo "::set-output name=tag::$TAG"
+         ${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY})
+         topics=(data| jq -r '.topics | join(",")')
+         des=((data| jq -r '.description | join(",")'))
+         echo "::set-output name=tag::$topics"
+         echo "::set-output name=description::$des"
+
          
-      - run: "echo description: ${{ fromJson(steps.get_latest_release.outputs.data).description }}"
+      - run: "echo description: ${{ steps.get_tag.outputs.description }}"
       - run: "echo tags: ${{ steps.get_tag.outputs.tag }}"
 
