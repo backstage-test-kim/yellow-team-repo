@@ -24,13 +24,27 @@ jobs:
           repository: backstage-test-kim/red-team-repo
           path: red-team-repo
           submodules: 'false'
-    
+     
+      - id: get_des
+        run: |
+         data=$(curl \
+         -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' -H "Accept: application/vnd.github.v3+json" \
+         ${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY} | jq '.description')
+         echo "::set-output name=description::$data"
+      - id: get_tag
+        run: |
+         TAG=$(curl \
+         -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' -H "Accept: application/vnd.github.mercy-preview+json" \
+         ${GITHUB_API_URL}/repos/${GITHUB_REPOSITORY}/topics | jq -r '.names[]? | join(",")')
+         echo "::set-output name=tag::$TAG"
            
       - name: generate catalog-info.yaml
         uses: kim5566/catalog-generate-action@main
         with:
           config_file: '{"Name":"Orange","Team":"orange","Lifecycle":"production","Type":"website","ProvidesApis":[{"Name":"API2", "Type":"grpc","Lifecycle":"experimental","Definition":"https://github.com/backstage-test-kim/test-action-mkdocs/blob/master/test.proto"}]}'
-
+          description: ${{ steps.get_des.outputs.description }}
+          topic: ${{ steps.get_tag.outputs.tag }}
+          
       - run: cat catalog-info.yaml
 
 
