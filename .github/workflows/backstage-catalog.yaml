@@ -18,12 +18,6 @@ jobs:
         with: 
           ref: ${{ github.event.pull_request.head.ref }}
 
-      - name: Checkout repo
-        uses: actions/checkout@v2
-        with:
-          repository: backstage-test-kim/red-team-repo
-          path: red-team-repo
-          submodules: 'false'
      
       - id: get_des
         run: |
