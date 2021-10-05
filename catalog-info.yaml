@@ -9,7 +9,7 @@ spec:
   owner: orange
   lifecycle: production
   providesApis:
-  - API10
+  - API11
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
