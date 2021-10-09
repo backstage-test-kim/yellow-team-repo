@@ -1,6 +1,6 @@
 name: Log latest release
 on:
-  push:
+  pull_request:
 
 
 jobs:
