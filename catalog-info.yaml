@@ -9,12 +9,12 @@ spec:
   owner: orange
   lifecycle: production
   providesApis:
-  - API29
+  - API30
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: API29
+  name: API30
 spec:
   type: grpc
   lifecycle: experimental
