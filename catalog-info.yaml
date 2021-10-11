@@ -13,6 +13,8 @@ spec:
   dependsOn:
   - "component: name-component"
   - "resource: name-db"
+  - component: "name-component"
+  - resource: "name-db"
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
