@@ -11,8 +11,8 @@ spec:
   providesApis:
   - API1
   dependsOn:
-  - "component: name-component"
-  - "resource: name-db"
+  - "component:name-component"
+  - "resource:name-db"
   - component: "name-component"
   - resource: "name-db"
 ---
