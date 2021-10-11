@@ -10,6 +10,9 @@ spec:
   lifecycle: production
   providesApis:
   - API1
+  dependsOn:
+  - component: name-component
+  - resource: name-db
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
