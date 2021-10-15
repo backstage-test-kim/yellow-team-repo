@@ -10,9 +10,6 @@ spec:
   lifecycle: production
   providesApis:
   - API1
-  dependsOn:
-  - "component:name-component"
-  - "resource:artists-db"
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
@@ -29,13 +26,4 @@ spec:
     service Greeter {
       rpc SayHello (HelloRequest) returns (HelloReply) {}
     }
----
-apiVersion: backstage.io/v1alpha1
-kind: Resource
-metadata:
-  name: artists-db
-  description: Stores artist details
-spec:
-  type: database
-  owner: team-a
-  system: artist-engagement-portal
+
