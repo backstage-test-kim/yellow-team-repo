@@ -11,7 +11,7 @@ jobs:
       uses: actions/checkout@v2
     - name: test
       run: |
-       hub pr show -f %l "1" | grep -i 'fail' && exit 1
+       echo 'hi'
     - if: ${{ failure() }}
       uses: peter-evans/create-or-update-comment@v1
       with:
