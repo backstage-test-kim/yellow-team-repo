@@ -6,8 +6,25 @@ metadata:
     backstage.io/techdocs-ref: dir:.
   description: yellow team repo for test backstage
 spec:
-  type: website
+  type: service
   owner: orange
   lifecycle: production
   providesApis:
   - API2
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: API2
+spec:
+  type: grpc
+  lifecycle: experimental
+  owner: orange
+  definition: |
+    syntax = "proto3";
+    option java_multiple_files = true;
+    package helloworld;
+    service Greeter {
+      rpc SayHello (HelloRequest) returns (HelloReply) {}
+    }
+
