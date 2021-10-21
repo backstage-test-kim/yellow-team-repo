@@ -21,3 +21,4 @@ spec:
   owner: orange
   definition:
     $text: https://github.com/backstage-test-kim/test-action-mkdocs/blob/master/test.proto
+

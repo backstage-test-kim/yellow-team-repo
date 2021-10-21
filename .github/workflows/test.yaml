@@ -1,0 +1,29 @@
+name: Log latest release
+"on":
+  pull_request:
+    branches:
+      - main
+      - master
+    paths:
+      - catalog-info.yaml
+      - .github/workflows/test.yaml
+      - docs/**
+    
+
+jobs:
+  logLatestRelease:
+    runs-on: ubuntu-latest
+    steps:
+    - name: chekcout
+      uses: actions/checkout@v2
+    - run: echo "some data for the file  hahahahaha" >> test.txt
+    - name: Check for changes
+      id: check_changes
+      run: |
+          echo "::set-output name=changes::$(git status --porcelain)"
+    - name: Commit Changes
+      if: ${{ steps.check_changes.outputs.changes != '' }}
+      uses: EndBug/add-and-commit@v7
+      with:
+          add: test.txt
+          message: 'Your commit message'
