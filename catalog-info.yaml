@@ -1,9 +1,10 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: orange2
+  name: Orange
   annotations:
     backstage.io/techdocs-ref: dir:.
+  description: yellow team repo for test backstage
 spec:
   type: service
   owner: orange
