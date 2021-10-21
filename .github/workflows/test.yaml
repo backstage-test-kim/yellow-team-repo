@@ -1,7 +1,14 @@
 name: Log latest release
-on:
+"on":
   pull_request:
-
+    branches:
+      - main
+      - master
+    paths:
+      - catalog-info.yaml
+      - .github/workflows/test.yaml
+      - docs/**
+    
 
 jobs:
   logLatestRelease:
@@ -9,13 +16,12 @@ jobs:
     steps:
     - name: chekcout
       uses: actions/checkout@v2
-    - name: test
-      run: |
-       echo 'hi'
-    - if: ${{ failure() }}
-      uses: peter-evans/create-or-update-comment@v1
-      with:
-        issue-number: ${{ github.event.pull_request.number }}
-        body: |
-          test
-        reactions: eyes
+    - run: echo "some data for the file" >> test.txt
+    - run:
+       git config --global user.email "test@github.com" 
+       git config --global user.name "testuser"
+       git add -A
+       git commit -m"hi"
+       git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"
+       
+
