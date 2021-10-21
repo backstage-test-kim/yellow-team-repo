@@ -17,11 +17,12 @@ jobs:
     - name: chekcout
       uses: actions/checkout@v2
     - run: echo "some data for the file" >> test.txt
-    - run:
-       git config --global user.email "test@github.com"  &&
-       git config --global user.name "testuser" &&
-       git add -A &&
-       git commit -m"hi" &&
-       git push --set-upstream origin "$(git rev-parse --abbrev-ref HEAD)"
+    - name: Badge Commit
+      uses: EndBug/add-and-commit@v7
+      with:
+          add: test.txt
+          message: 'Your commit message'
+
+
        
 
