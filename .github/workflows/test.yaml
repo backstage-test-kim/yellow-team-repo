@@ -1,7 +1,14 @@
 name: Log latest release
-on:
+"on":
   pull_request:
-
+    branches:
+      - main
+      - master
+    paths:
+      - catalog-info.yaml
+      - .github/workflows/test.yaml
+      - docs/**
+    
 
 jobs:
   logLatestRelease:
@@ -9,13 +16,14 @@ jobs:
     steps:
     - name: chekcout
       uses: actions/checkout@v2
-    - name: test
+    - run: echo "some data for the file  hahahahaha" >> test.txt
+    - name: Check for changes
+      id: check_changes
       run: |
-       hub pr show -f %l "1" | grep -i 'fail' && exit 1
-    - if: ${{ failure() }}
-      uses: peter-evans/create-or-update-comment@v1
+          echo "::set-output name=changes::$(git status --porcelain)"
+    - name: Commit Changes
+      if: ${{ steps.check_changes.outputs.changes != '' }}
+      uses: EndBug/add-and-commit@v7
       with:
-        issue-number: ${{ github.event.pr_request.number }}
-        body: |
-          test
-        reactions: eyes
+          add: test.txt
+          message: 'Your commit message'
