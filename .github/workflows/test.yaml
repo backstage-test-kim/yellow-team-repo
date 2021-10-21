@@ -18,6 +18,8 @@ jobs:
       uses: actions/checkout@v2
     - run: echo "some data for the file" >> test.txt
     - run:
+       git config --system core.longpaths true
+       git config --global core.longpaths true
        git config --global user.email "test@github.com" 
        git config --global user.name "testuser"
        git add -A
