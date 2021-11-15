@@ -19,7 +19,9 @@
 3. the following are **mandataroy**:
 
     1. **service**: tes
+    
     2. **type**
+    
     3. **name** for: 
 
     | Type | item| group|
