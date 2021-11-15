@@ -32,14 +32,14 @@
     |sa|as|sda
     |sa|as|sda|
     
-!!! note
+  !!! note
     
-    - 1
-    - dsa
+      - 1
+      - dsa
     
 6. type
 7. click
 
-!!! note
+  !!! note
 
-    eamil
+      eamil
