@@ -1,28 +1,28 @@
-# Heading 1
+# Create 
 
-## Heading 2
+Test
 
-### Heading 3
+## Before 
 
-## before 
-
-- Sccess
-
+- Access
+  
   !!! info "Key"
-    
-     - **test**: test
 
-## steps: create
-
-1. go
-2. from
-3. the following are **mandataroy**:
-
-    1. **service**: tes
+      - **Request Type**:  Modify Group
+      - **Name**:  
+      - **group**: 
     
-    2. **type**
+## Steps: TEST
+
+1. TESTA
+2. tESTB
+3. The following are the mandatory : 
+   
+    1. **Service**: test
+
+    2. **Category**: 
     
-    3. **name** for: 
+    3. **Configuration item** for:
 
     | Type | item| group|
     |---|---|---|
@@ -31,15 +31,17 @@
     |sa|as|sda|
     |sa|as|sda
     |sa|as|sda|
-    
-  !!! note
-    
-      - 1
-      - dsa
-    
-6. type
-7. click
 
   !!! note
 
-      eamil
+      - A. 
+      - B.
+
+6. testC
+
+7. Click **Submit**.
+
+  !!! note
+
+      To email
+
