@@ -4,24 +4,40 @@
 
 ### Heading 3
 
-This plain TEXT
+## before 
 
-  !!!info "Key"
+- Sccess
+
+  !!! info "Key"
     
      - **test**: test
 
 ## steps: create
 
-1. sa
-2. sa
-3. dsa:
+1. go
+2. from
+3. the following are **mandataroy**:
 
-    1. sdnjas
-    2. dnasjkda
-    3. dsa: 
+    1. **service**: tes
+    2. **type**
+    3. **name** for: 
 
-    | Type | tets | hsaj|
+    | Type | item| group|
     |---|---|---|
     |das|da|sa
     |sa|as|sda|
+    |sa|as|sda|
+    |sa|as|sda
+    |sa|as|sda|
+    
+!!! note
+    
+    - 1
+    - dsa
+    
+6. type
+7. click
 
+!!! note
+
+    eamil
