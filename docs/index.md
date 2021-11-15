@@ -22,13 +22,13 @@
     2. **type**
     3. **name** for: 
 
-| Type | item| group|
-|---|---|---|
-|das|da|sa
-|sa|as|sda|
-|sa|as|sda|
-|sa|as|sda
-|sa|as|sda|
+    | Type | item| group|
+    |---|---|---|
+    |das|da|sa
+    |sa|as|sda|
+    |sa|as|sda|
+    |sa|as|sda
+    |sa|as|sda|
     
 !!! note
     
