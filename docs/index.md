@@ -41,7 +41,7 @@ Test
 
 7. Click **Submit**.
 
-  !!! note
+!!! note
 
-      To email
+    To email
 
