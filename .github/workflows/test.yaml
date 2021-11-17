@@ -15,7 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "${{ github.event.pull_request }}"
+          echo "${{ github.event.pull_request.base.sha}}"
+      - run: |
+          echo "${{ github.event.pull_request.head.sha}}"
     # - name: chekcout
     #   uses: actions/checkout@v2
     # - run: echo "some data for the file  hahahahaha" >> test.txt
