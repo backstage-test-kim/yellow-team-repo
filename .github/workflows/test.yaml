@@ -14,16 +14,31 @@ jobs:
   logLatestRelease:
     runs-on: ubuntu-latest
     steps:
-    - name: chekcout
-      uses: actions/checkout@v2
-    - run: echo "some data for the file  hahahahaha" >> test.txt
-    - name: Check for changes
-      id: check_changes
-      run: |
-          echo "::set-output name=changes::$(git status --porcelain)"
-    - name: Commit Changes
-      if: ${{ steps.check_changes.outputs.changes != '' }}
-      uses: EndBug/add-and-commit@v7
-      with:
-          add: test.txt
-          message: 'Your commit message'
+      - uses: actions/checkout@v2
+      - run: |
+          echo "${{ toJson(github.event.pull_request) }}"
+      - run: |
+          echo "${{ toJson(github.event.pull_request) }}"
+      - run: |
+          echo "${{ github.event.pull_request.base.sha}}"
+      - run: |
+          echo "${{ github.event.pull_request.head.sha}}"
+      # - run: |
+      #     git diff --name-only -z origin/main...orgin/test-git
+      # - run: |
+      #     git diff --name-only -z ${{ github.event.pull_request.base.ref}}...${{ github.event.pull_request.head.sha}}
+      # - run: |
+      #     git diff --name-only -z ${{ github.event.pull_request.base.sha}}...${{ github.event.pull_request.head.sha}}
+    # - name: chekcout
+    #   uses: actions/checkout@v2
+    # - run: echo "some data for the file  hahahahaha" >> test.txt
+    # - name: Check for changes
+    #   id: check_changes
+    #   run: |
+    #       echo "::set-output name=changes::$(git status --porcelain)"
+    # - name: Commit Changes
+    #   if: ${{ steps.check_changes.outputs.changes != '' }}
+    #   uses: EndBug/add-and-commit@v7
+    #   with:
+    #       add: test.txt
+    #       message: 'Your commit message'
