@@ -1,4 +1,4 @@
-name: Log latest release
+name: Log latest release v1
 "on":
   pull_request:
     branches:
