@@ -4,10 +4,7 @@ name: Log latest release v1
     branches:
       - main
       - master
-    paths:
-      - catalog-info.yaml
-      - .github/workflows/test.yaml
-      - docs/**
+
     
 
 jobs:
