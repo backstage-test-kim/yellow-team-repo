@@ -23,12 +23,12 @@ jobs:
           echo "${{ github.event.pull_request.base.sha}}"
       - run: |
           echo "${{ github.event.pull_request.head.sha}}"
-      - run: |
-          git diff --name-only -z origin/main...orgin/test-git
-      - run: |
-          git diff --name-only -z ${{ github.event.pull_request.base.ref}}...${{ github.event.pull_request.head.sha}}
-      - run: |
-          git diff --name-only -z ${{ github.event.pull_request.base.sha}}...${{ github.event.pull_request.head.sha}}
+      # - run: |
+      #     git diff --name-only -z origin/main...orgin/test-git
+      # - run: |
+      #     git diff --name-only -z ${{ github.event.pull_request.base.ref}}...${{ github.event.pull_request.head.sha}}
+      # - run: |
+      #     git diff --name-only -z ${{ github.event.pull_request.base.sha}}...${{ github.event.pull_request.head.sha}}
     # - name: chekcout
     #   uses: actions/checkout@v2
     # - run: echo "some data for the file  hahahahaha" >> test.txt
