@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          echo "$GITHUB_REF#refs/*/}"
+          echo "${GITHUB_REF#refs/*/}"
 
       # - run: |
       #     git diff --name-only -z origin/main...orgin/test-git
