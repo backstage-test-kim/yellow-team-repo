@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: List open pull requests
         run: |
-          hub ci-status https://github.com/backstage-test-kim/yellow-team-repo/pull/52/commits/bd7d77019653427047d24dec191720eb6658101b
+          hub ci-status bd7d77019653427047d24dec191720eb6658101b
         env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: List open pull requests
