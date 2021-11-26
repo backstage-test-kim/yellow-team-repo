@@ -1,9 +1,6 @@
 name: Log latest release v1
 "on":
-  pull_request:
-    branches:
-      - main
-      - master
+  push:
 
     
 
@@ -12,14 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: |
-          echo "${{ toJson(github.event.pull_request) }}"
-      - run: |
-          echo "${{ toJson(github.event.pull_request) }}"
-      - run: |
-          echo "${{ github.event.pull_request.base.sha}}"
-      - run: |
-          echo "${{ github.event.pull_request.head.sha}}"
+
+      - name: List open pull requests
+        run: hub pr list
+        env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # - run: |
       #     git diff --name-only -z origin/main...orgin/test-git
       # - run: |
