@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: List open pull requests
-        run: hub pr list
+        run: hub pr list -f 'SYNC="%U %t" ' | xargs -n1 echo | grep -i "test"  >> $GITHUB_ENV
         env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # - run: |
