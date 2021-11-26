@@ -9,9 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
       - name: List open pull requests
-        run: hub pr list -f 'SYNC="%U %t" ' | xargs -n1 echo | grep -i "test"  >> $GITHUB_ENV
+        run: |
+          hub ci-status
+        env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: List open pull requests
+        run: |
+          hub pr list -f 'SYNC="%U %t" '
         env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # - run: |
