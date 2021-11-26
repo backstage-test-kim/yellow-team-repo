@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: List open pull requests
         run: |
-          if hub ci-status bd7d77019653427047d24dec191720eb6658101b | grep -i failure; then
+          if hub ci-status b32cb92 | grep -i success; then
             echo "ok"
             hub pr list -f '%t'
           fi
