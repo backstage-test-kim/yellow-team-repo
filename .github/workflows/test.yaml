@@ -5,43 +5,39 @@ name: Log latest release v1
     
 
 jobs:
+  job1:
+    runs-on: ubuntu-latest
+    outputs:
+      filenames: ${{ steps.set-matrix.outputs.filenames }}
+    steps:
+    - id: set-matrix
+      name: get folder name
+      shell: bash
+      run: |
+          declare -a arrPics
+          DIR=yellow-team-repo
+          for file in $(find ${DIR}/docs/* -type d -maxdepth 0 -exec basename {} \; ); do
+                arrPics=(${arrPics[@]} "$file")
+          done
+          JSON="{\"tfpaths\":["
+
+          # Loop by lines
+          while read path; do
+          # Add item to the matrix only if it is not already included
+          JSONline="\"$path\","
+          if [[ "$JSON" != *"$JSONline"* ]]; then
+          JSON="$JSON$JSONline"
+          fi
+          done <<< "$DIFF"
+          echo "::set-output name=filenames::$( echo "$JSON" )"
   logLatestRelease:
     runs-on: ubuntu-latest
+    needs: job1
+    strategy:
+      matrix: ${{ fromJson(needs.job1.outputs.filenames) }}
     steps:
       - uses: actions/checkout@v2
-#       - name: List open pull requests
-#         run: |
-#           hub ci-status -v bd7d770
-#           if hub ci-status bd7d770 | grep -i failure; then
-#             echo "ok"
-#             hub pr list -f '%t'
-#           fi
-#         env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: List ${{ matrix.name }}
-        run: |
-          echo "hi ${{ matrix.name }}"
-    strategy:
-      matrix:
-        include:
-          - name: abc
-          - name: def
-      # - run: |
-      #     git diff --name-only -z origin/main...orgin/test-git
-      # - run: |
-      #     git diff --name-only -z ${{ github.event.pull_request.base.ref}}...${{ github.event.pull_request.head.sha}}
-      # - run: |
-      #     git diff --name-only -z ${{ github.event.pull_request.base.sha}}...${{ github.event.pull_request.head.sha}}
-    # - name: chekcout
-    #   uses: actions/checkout@v2
-    # - run: echo "some data for the file  hahahahaha" >> test.txt
-    # - name: Check for changes
-    #   id: check_changes
-    #   run: |
-    #       echo "::set-output name=changes::$(git status --porcelain)"
-    # - name: Commit Changes
-    #   if: ${{ steps.check_changes.outputs.changes != '' }}
-    #   uses: EndBug/add-and-commit@v7
-    #   with:
-    #       add: test.txt
-    #       message: 'Your commit message'
+
+      - name: test
+        run: echo ${{ matrix.tfpaths }}
+    
