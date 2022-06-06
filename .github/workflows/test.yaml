@@ -24,6 +24,7 @@ jobs:
                 arrPics=(${arrPics[@]} "$file")
           done
           echo "::set-output name=filenames::$( echo "$arrPics" )"
+          echo $arrPics
   job2:
     runs-on: ubuntu-latest
     needs: job1
