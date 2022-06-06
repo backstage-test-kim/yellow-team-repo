@@ -5,40 +5,6 @@ name: Log latest release v1
     
 
 jobs:
-#   prepare:
-#     runs-on: ubuntu-20.04
-#     outputs:
-#       proj0: ${{ steps.set.outputs.proj0 }}
-#       proj1: ${{ steps.set.outputs.proj1 }}
-#       proj2: ${{ steps.set.outputs.proj2 }}
-#       target: ${{ steps.set.outputs.target }}
-#     steps:
-#       - uses: actions/checkout@v3
-#       - id: set
-#         name: set variables
-#         run: |
-#           echo ::set-output name=proj0::$(jq -c '.proj | with_entries(select(.value.group==0)) | keys' matrix.json)
-#           echo ::set-output name=proj1::$(jq -c '.proj | with_entries(select(.value.group==1)) | keys' matrix.json)
-#           echo ::set-output name=proj2::$(jq -c '.proj | with_entries(select(.value.group==2)) | keys' matrix.json)
-#           echo ::set-output name=target::$(jq -c '.target | keys' matrix.json)
-#   group0:
-#     runs-on: ubuntu-20.04
-#     needs: [prepare]
-#     strategy:
-#       matrix:
-#         proj:
-#           - ${{ fromJson(needs.prepare.outputs.proj0) }}
-#         target:
-#           - ${{ fromJson(needs.prepare.outputs.target) }}
-#       max-parallel: 10
-#     name: ${{ matrix.proj }} ${{ matrix.target }}
-#     steps:
-#       - uses: actions/checkout@v3
-#       - run: bash build.sh ${{ matrix.proj }} ${{ matrix.target }}
-#       - uses: actions/upload-artifact@v3
-#         with:
-#           name: ${{ matrix.proj }} ${{ matrix.target }}
-#           path: output
   job1:
     runs-on: ubuntu-latest
     outputs:
@@ -57,17 +23,7 @@ jobs:
           for file in $(find ${DIR}/docs/* -type d -maxdepth 0 -exec basename {} \; ); do
                 arrPics=(${arrPics[@]} "$file")
           done
-          JSON="{\"tfpaths\":["
-
-          # Loop by lines
-          while read path; do
-          # Add item to the matrix only if it is not already included
-          JSONline="\"$path\","
-          if [[ "$JSON" != *"$JSONline"* ]]; then
-          JSON="$JSON$JSONline"
-          fi
-          done <<< "$DIFF"
-          JSON="$JSON]}"
+          JSON="{filenames:[a, b, c]}"
           echo $JSON
           echo "::set-output name=filenames::$( echo "$JSON" )"
   job2:
@@ -76,7 +32,7 @@ jobs:
     strategy:
       matrix: 
        filenames: 
-        - ${{fromJson(needs.job1.outputs.matrix)}}
+        - ${{fromJson(needs.job1.outputs.filenames)}}
     steps:
       - uses: actions/checkout@v2
 
