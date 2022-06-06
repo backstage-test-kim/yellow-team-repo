@@ -9,15 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: List open pull requests
-        run: |
-          hub ci-status -v bd7d770
-          if hub ci-status bd7d770 | grep -i failure; then
-            echo "ok"
-            hub pr list -f '%t'
-          fi
-        env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       - name: List open pull requests
+#         run: |
+#           hub ci-status -v bd7d770
+#           if hub ci-status bd7d770 | grep -i failure; then
+#             echo "ok"
+#             hub pr list -f '%t'
+#           fi
+#         env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: List ${{ matrix.name }}
         run: |
           echo "hi ${{ matrix.name }}
