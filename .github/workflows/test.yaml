@@ -29,8 +29,8 @@ jobs:
     needs: job1
     strategy:
       matrix: 
-       filenames: 
-        - ${{fromJson(needs.job1.outputs.filenames)}}
+       filenames: [a,b,c]
+#         - ${{fromJson(needs.job1.outputs.filenames)}}
     steps:
       - uses: actions/checkout@v2
 
