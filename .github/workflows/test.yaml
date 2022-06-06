@@ -12,6 +12,8 @@ jobs:
     steps:
     - name: Checkout harness repo
       uses: actions/checkout@v2
+      with:
+         path: yellow-team-repo
     - id: set-matrix
       name: get folder name
       shell: bash
