@@ -20,7 +20,7 @@ jobs:
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: List ${{ matrix.name }}
         run: |
-          echo "hi ${{ matrix.name }}
+          echo "hi ${{ matrix.name }}"
     strategy:
       matrix:
         include:
