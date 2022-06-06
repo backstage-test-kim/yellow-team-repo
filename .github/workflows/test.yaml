@@ -10,6 +10,8 @@ jobs:
     outputs:
       filenames: ${{ steps.set-matrix.outputs.filenames }}
     steps:
+    - name: Checkout harness repo
+      uses: actions/checkout@v2
     - id: set-matrix
       name: get folder name
       shell: bash
