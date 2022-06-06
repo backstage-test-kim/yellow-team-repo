@@ -18,11 +18,14 @@ jobs:
           fi
         env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: List open pull requests
+      - name: List ${{ matrix.name }}
         run: |
-          hub pr list -f 'SYNC="%U %t" '
-        env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          echo "hi ${{ matrix.name }}
+    strategy:
+      matrix:
+        include:
+          - name: abc
+          - name: def
       # - run: |
       #     git diff --name-only -z origin/main...orgin/test-git
       # - run: |
