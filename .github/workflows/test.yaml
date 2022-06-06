@@ -23,8 +23,8 @@ jobs:
           for file in $(find ${DIR}/docs/* -type d -maxdepth 0 -exec basename {} \; ); do
                 arrPics=(${arrPics[@]} "$file")
           done
-          echo "::set-output name=filenames::$( echo "$arrPics" )"
-          echo $arrPics
+          echo "::set-output name=filenames::$( echo "${arrPics[@]}" )"
+          echo ${arrPics[@]}
   job2:
     runs-on: ubuntu-latest
     needs: job1
