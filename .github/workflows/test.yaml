@@ -23,7 +23,7 @@ jobs:
           set -x
           for valuestream in $(find ${DEPLOYMENTS_DIR}/docs/* -type d -maxdepth 0 -exec basename {} \; ); do
               echo "This is some text" > randomtext.txt
-              cp -v randomtext.txt "${DEPLOYMENTS_DIR}/docs/asset"
+              cp -v randomtext.txt "${DEPLOYMENTS_DIR}/docs/asset/"
 
               echo "Syncing configuration for valuestream: $valuestream"
 
