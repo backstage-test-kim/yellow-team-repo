@@ -22,7 +22,7 @@ jobs:
           DEPLOYMENTS_DIR=yellow-team-repo
           set -x
           for valuestream in $(find ${DEPLOYMENTS_DIR}/docs/* -type d -maxdepth 0 -exec basename {} \; ); do
-              cd ${DEPLOYMENTS_DIR}/docs/asset
+              cd ${DEPLOYMENTS_DIR}/docs/$valuestream
               echo "This is some text" > randomtext.txt
               cd ../../..
               echo "Syncing configuration for valuestream: $valuestream"
@@ -40,7 +40,7 @@ jobs:
                 then
                 echo "nothing to commit. Pipeline is already up to date"
                 cd ..
-                break
+                continue
               fi
               git commit -m  "initial"
           done
