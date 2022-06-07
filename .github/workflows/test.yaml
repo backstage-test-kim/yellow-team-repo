@@ -22,9 +22,9 @@ jobs:
           DEPLOYMENTS_DIR=yellow-team-repo
           set -x
           for valuestream in $(find ${DEPLOYMENTS_DIR}/docs/* -type d -maxdepth 0 -exec basename {} \; ); do
-              cd docs/asset
+              cd ${DEPLOYMENTS_DIR}docs/asset
               echo "This is some text" > randomtext.txt
-              cd ../..
+              cd ../../..
               echo "Syncing configuration for valuestream: $valuestream"
 
               for dirpath in $(find "${DEPLOYMENTS_DIR}/${valuestream}" -type d -mindepth 1 -maxdepth 1 >/dev/null); do
