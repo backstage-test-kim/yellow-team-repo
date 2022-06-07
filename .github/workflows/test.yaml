@@ -8,11 +8,10 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout harness repo
+    - name: Checkout repo
       uses: actions/checkout@v2
       with:
          path: yellow-team-repo
-         ref: main
     - id: set-matrix
       name: get folder name
       shell: bash
@@ -37,7 +36,12 @@ jobs:
               git config user.email github-actions@github.com
               git checkout -B "${valuestream}-${{ github.run_id }}-${{ github.run_number }}"
               git add .
-
+              if git diff --cached --exit-code
+                then
+                echo "nothing to commit. Pipeline is already up to date"
+                cd ..
+                continue
+              fi
               git commit -m  "initial"
               git show-ref
               git branch
