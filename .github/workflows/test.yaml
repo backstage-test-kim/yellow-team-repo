@@ -43,7 +43,7 @@ jobs:
                 cd ..
                 continue
               fi
-              git commit -m "initial commit"
+              git commit -m 'initial commit'
               git show-ref
               git branch
               git push -u origin "${{ env.BRANCH_NAME }}-${{ github.run_id }}-${{ github.run_number }}" -f
