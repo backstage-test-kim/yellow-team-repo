@@ -43,6 +43,7 @@ jobs:
                 continue
               fi
               git commit -m  "initial"
+              cd ..
           done
     - name: Create pull request
       if: hashFiles('skip-commit') == ''
