@@ -40,7 +40,7 @@ jobs:
                 then
                 echo "nothing to commit. Pipeline is already up to date"
                 cd ..
-                continue
+                break
               fi
               git commit -m  "initial"
           done
