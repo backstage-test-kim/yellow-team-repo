@@ -40,7 +40,7 @@ jobs:
               if git diff --cached --exit-code
                 then
                 echo "nothing to commit. Pipeline is already up to date"
-                exit 0
+                break
               fi
               git commit -m "hi"
 
