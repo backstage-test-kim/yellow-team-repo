@@ -19,7 +19,7 @@ jobs:
       shell: bash
       run: |
          DIR=yellow-team-repo
-         ls ${DIR}/pipelines | jq -csR '. | rtrimstr("\n") | split("\n")' > rules.list
+         ls ${DIR}/docs | jq -csR '. | rtrimstr("\n") | split("\n")' > rules.list
          cat rules.list
          echo "::set-output name=rules::$(cat rules.list)"
     - run: echo ${{ steps.set-matrix.outputs.rules }}
