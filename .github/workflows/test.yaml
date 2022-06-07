@@ -48,6 +48,7 @@ jobs:
               gh pr create  --title "sync" \
               --body "*An automated PR*"
               cd ..
+              git checkout main
           done
 
     
