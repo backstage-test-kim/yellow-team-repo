@@ -8,7 +8,7 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     outputs:
-      filenames: ${{ steps.set-matrix.outputs.filenames }}
+      rules: ${{ steps.set-matrix.outputs.rules }}
     steps:
     - name: Checkout harness repo
       uses: actions/checkout@v2
@@ -18,24 +18,20 @@ jobs:
       name: get folder name
       shell: bash
       run: |
-          declare -a arrPics
-          DIR=yellow-team-repo
-          for file in $(find ${DIR}/docs/* -type d -maxdepth 0 -exec basename {} \; ); do
-                arrPics=(${arrPics[@]} "$file")
-          done
-          echo "::set-output name=filenames::$( echo "${arrPics[@]}" )"
-    - run: echo ${{ steps.set-matrix.outputs.filenames }}
+         DIR=yellow-team-repo
+         ls ${DIR}/pipelines | jq -csR '. | rtrimstr("\n") | split("\n")' > rules.list
+         cat rules.list
+         echo "::set-output name=rules::$(cat rules.list)"
+    - run: echo ${{ steps.set-matrix.outputs.rules }}
   job2:
     runs-on: ubuntu-latest
     needs: job1
     strategy:
       matrix: 
-       filenames: 
-       - ${{fromJson(needs.job1.outputs.filenames)}}
-#         - ${{fromJson(needs.job1.outputs.filenames)}}
+        rule: ${{ fromJson(needs.job1.outputs.rules) }}
     steps:
       - uses: actions/checkout@v2
 
       - name: test
-        run: echo ${{ matrix.filenames }}
+        run: echo ${{ matrix.rule }}
     
