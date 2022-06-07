@@ -35,7 +35,7 @@ jobs:
               git config user.email "test@github.com"
               git config user.name "Automation"
               git checkout -B "${valuestream}-${{ github.run_id }}-${{ github.run_number }}"
-              git add config
+              git add .
               if git diff --cached --exit-code
                 then
                 echo "nothing to commit. Pipeline is already up to date"
