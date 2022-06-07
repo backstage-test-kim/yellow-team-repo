@@ -31,8 +31,6 @@ jobs:
                 echo "Syncing directory: $dirpath (valuestream: $valuestream)"
               done
 
-              set +x
-
               cd ${DEPLOYMENTS_DIR} || exit 1
               git config user.email "test@github.com"
               git config user.name "Automation"
