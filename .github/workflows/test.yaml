@@ -47,8 +47,8 @@ jobs:
               git push -u origin "test-$valuestream-${{ github.run_id }}-${{ github.run_number }}" -f
               gh pr create  --title "sync" \
               --body "*An automated PR*"
-              cd ..
               git checkout main
+              cd ..
           done
 
     
