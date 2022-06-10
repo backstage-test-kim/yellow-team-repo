@@ -1,10 +1,10 @@
 name: issue-test
 
 on:
-  issues:
-    types: 
-      - opened
-      - transferred
+#   issues:
+#     types: 
+#       - opened
+#       - transferred
 
 jobs:
   assign-project:
@@ -14,9 +14,5 @@ jobs:
         env:
           BACKLOG_COLUMN_ID: 18882381x
         run: |
-          curl \
-            --fail-with-body \
-            -X POST \
-            -H "Accept: application/vnd.github.v3+json" \
-            -d '{"content_id": ${{ github.event.issue.id }}, "content_type": "Issue"}' \
-            https://x-access-token:${{ secrets.GITHUB_TOKEN }}@api.github.com/projects/columns/${BACKLOG_COLUMN_ID}/cards
+          curl --help
+
