@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Move card
         env:
-          BACKLOG_COLUMN_ID: 18882381
+          BACKLOG_COLUMN_ID: 18882381x
         run: |
           curl \
             -X POST \
