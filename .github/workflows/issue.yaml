@@ -1,6 +1,7 @@
 name: issue-test
 
 on:
+  push:
 #   issues:
 #     types: 
 #       - opened
