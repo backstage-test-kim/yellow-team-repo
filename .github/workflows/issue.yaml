@@ -1,0 +1,21 @@
+name: issue-test
+
+on:
+  issues:
+    types: 
+      - opened
+      - transferred
+
+jobs:
+  assign-project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Move card
+        env:
+          BACKLOG_COLUMN_ID: 18882381
+        run: |
+          curl \
+            -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            -d '{"content_id": ${{ github.event.issue.id }}, "content_type": "Issue"}' \
+            https://x-access-token:${{ secrets.GITHUB_TOKEN }}@api.github.com/projects/columns/${BACKLOG_COLUMN_ID}/cards
