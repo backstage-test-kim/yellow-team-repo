@@ -39,7 +39,7 @@ jobs:
                 cd ..
                 continue
               fi
-              git commit -m  "initial"
+              git commit -m  "initial - ${DEPLOYMENTS_DIR}"
               echo "$PWD"
               git push -u origin "test-$valuestream-${{ github.run_id }}-${{ github.run_number }}" -f
               gh pr create  --title "sync" \
